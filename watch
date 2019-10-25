@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+from subprocess import check_output
+from subprocess import STDOUT
+import os
+import time
+import sys
+
+
+input = " ".join(sys.argv[1:])
+
+while True:
+    output = check_output(input,
+                          stderr=STDOUT,
+                          shell=True).decode('utf-8').replace('\n', '')
+
+    os.system('clear')
+    sys.stdout.write('\r' + output)
+    time.sleep(5.0)
+
